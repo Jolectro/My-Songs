@@ -2,7 +2,7 @@
 body{text-align:center;}
 #album-cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(500px,1fr));gap:40px;margin-top:2rem;padding:0 2rem;}
 @media(max-width:992px){#album-cards{grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:28px;padding:0 1.5rem;}.image-container{height:220px;}}
-@media(max-width:480px){#album-cards{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;padding:0 1rem;}.album-card{padding:12px;}.image-container{height:180px;}}
+@media(max-width:480px){#album-cards{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;padding:0 1rem;}.album-card{padding:12px;}.image-container{height:180px;}}
 .album-card{border-radius:13px;background:#1f2937;color:#fff;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.25);transition:transform 1s ease,box-shadow 1s ease;overflow:visible;}
 .album-card:hover{transform:translateY(-20px);box-shadow:0 14px 28px rgba(0,0,0,0.35);}
 .album-title{font-size:clamp(1rem,1.2vw,1.25rem);margin:0 0 8px 0;font-weight:700;color:#fb923c;}
