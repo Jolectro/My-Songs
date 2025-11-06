@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jolectro - Music Albums</title>
+  <link rel="stylesheet" href="../styles/my stylez.css">
+  <link rel="stylesheet" href="../styles/albums.css">
+  <script src="../js/aos.js"></script>
+</head>
+<body class="bg-gray-900 text-white font-rockwell">
+<div class="bg-gray-800 p-4 flex justify-between items-center text-orange-500 mt-4 mx-4 rounded-3xl shadow-md">
+  <div class="flex items-center space-x-3">
+    <img src="../covers/1.jpg" alt="Logo" class="h-12 w-12 rounded-full shadow-md" />
+    <h1 class="text-2xl font-semibold tracking-wide">Jolectro</h1>
+  </div>
+  <div class="space-x-4">
+    <a href="https://github.com/Jolectro" class="px-4 py-2 bg-orange-500 text-gray-800 rounded-lg hover:bg-orange-400 transition">Home</a>
+    <a href="search.html" class="px-4 py-2 bg-orange-500 text-gray-800 rounded-lg hover:bg-orange-400 transition">🔍Search</a>
+    <a href="stories.html" class="px-4 py-2 bg-orange-500 text-gray-800 rounded-lg hover:bg-orange-400 transition">Stories</a>
+    <a href="#albums" class="px-4 py-2 bg-orange-500 text-gray-800 rounded-lg hover:bg-orange-400 transition">Start</a>
+  </div>
+</div>
+<section class="banner">
+  <img src="../covers/banner.jpg" alt="Stories Banner">
+</section>
+<section id="albums" class="my-12 px-6">
+  <h2 class="text-3xl font-semibold text-orange-500 text-center" data-aos="fade-up" >Jolectro's Albums</h2>
+  <p class="text-lg text-center text-gray-400 mt-2">Explore my music albums and click to discover the songs!</p>
+  <div id="album-cards"></div>
+</section>
+<div id="song-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h4 id="song-title" class="text-xl text-orange-400 mb-2">Song Title</h4>
+    <div id="lyrics-box" class="lyrics-box">
+      <p id="lyrics-text" class="lyrics-text">Loading lyrics...</p>
+    </div>
+    <div class="audio-player mt-4">
+      <audio controls>
+        <source id="audio-source" src="" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="modal-links mt-4 flex justify-center space-x-4">
+      <a id="youtube-link" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded text-white font-semibold transition">YouTube</a>
+      <a id="audiomack-link" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-orange-500 hover:bg-orange-600 rounded text-white font-semibold transition">Audiomack</a>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  &copy; <span id="year"></span> Jolectro. All rights reserved.
+</footer>
+<script src="../js/albums.js"></script>
+</body>
+</html>

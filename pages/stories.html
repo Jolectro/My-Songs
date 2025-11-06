@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jolectro | Stories</title>
+  <link rel="stylesheet" href="../styles/stories.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-area">
+      <img src="../covers/1.jpg" alt="Jolectro Logo" class="logo">
+      <h1>Jolectro</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="https://github.com/Jolectro">Home</a>
+      <a href="songs.html">Songs</a>
+      <a href="stories.html" class="active">Stories</a>
+      <a href="search.html">🔍Search</a>
+    </nav>
+  </header>
+  <section class="banner">
+    <img src="../covers/banner.jpg" alt="Stories Banner">
+  </section>
+  <main class="content">
+    <h2>🎧 Song Storylines</h2>
+    <p>Click a story to read its full tale and hear its narration.</p>
+    <div id="storyList" class="story-grid"></div>
+  </main>
+  <div id="storyModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">×</button>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText" class="story-text"></p>
+      <button id="narrationBtn" class="narration-btn">▶️ Play Narration</button>
+      <audio id="narrationAudio" controls></audio>
+    </div>
+  </div>
+  <section class="content">
+    <p>More are coming soon, with time!</p>
+  </section>
+  <footer class="footer">© <span id="year"></span> Jolectro. All rights reserved.</footer>
+  <script src="../js/stories.js"></script>
+</body>
+</html>
