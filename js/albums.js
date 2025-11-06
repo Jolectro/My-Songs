@@ -187,7 +187,7 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
         const { slugHyphen, slugPlain } = makeSlugs(songTitle);
         songs[songTitle] = {
         audio: `audio/${slugPlain}.wav`,
-        lyricsPath: `lyrics/${slugPlain}.txt`,
+        lyricsPath: `../lyrics/${slugPlain}.txt`,
         audiomack: `https://audiomack.com/jolectro/song/${slugHyphen}`,
         youtube: `https://youtube.com/results?search_query=jolectro+${encodeURIComponent(songTitle)}`
         };
