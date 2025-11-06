@@ -172,10 +172,10 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
     function makeSlugs(title) {
     const lower = String(title).toLowerCase().trim();
     const slugHyphen = lower
-        .replace(/[^a-z0-9\s-]/g, '')   // remove weird chars
-        .replace(/\s+/g, '-')           // spaces -> hyphen
-        .replace(/-+/g, '-');           // collapse multiple hyphens
-    const slugPlain = lower.replace(/[^a-z0-9]/g, ''); // compact alnum
+        .replace(/[^a-z0-9\s-]/g, '')   
+        .replace(/\s+/g, '-')          
+        .replace(/-+/g, '-');           
+    const slugPlain = lower.replace(/[^a-z0-9]/g, ''); 
     return { slugHyphen, slugPlain };
     }
 
@@ -187,7 +187,7 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
         const { slugHyphen, slugPlain } = makeSlugs(songTitle);
         songs[songTitle] = {
         audio: `audio/${slugPlain}.wav`,
-        lyricsPath: `../lyrics/${slugPlain}.txt`,
+        lyricsPath: `/My-Songs/lyrics/${slugPlain}.txt`,
         audiomack: `https://audiomack.com/jolectro/song/${slugHyphen}`,
         youtube: `https://youtube.com/results?search_query=jolectro+${encodeURIComponent(songTitle)}`
         };
@@ -251,11 +251,9 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
     observer.observe(albumDiv);
     });
 
-    /* Delegated event handling for toggles and song actions */
     albumContainer.addEventListener('click', (evt) => {
     const t = evt.target;
 
-    // Toggle button
     if (t.closest && t.closest('.toggle-songs-btn')) {
         const btn = t.closest('.toggle-songs-btn');
         const card = btn.closest('.album-card');
@@ -263,7 +261,6 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
         btn.innerText = card.classList.contains('open') ? 'Hide Songs' : 'Show Songs';
         return;
     }
-    // Song tile click -> open modal
     const tile = t.closest && t.closest('.song-tile');
     if (tile) {
         const songTitle = tile.dataset.song;
@@ -333,7 +330,6 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
     if (e.target.id === 'song-modal') closeModal();
     });
 
-    /* -------------- SEARCH overlay -------------- */
     (function initSearchOverlay() {
     const searchLink = document.querySelector('a[href="search.html"], a[href="#search"], a[data-search="true"]');
     if (!searchLink) return;
@@ -358,11 +354,9 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
         `;
         document.body.appendChild(overlay);
 
-        // close handler
         overlay.addEventListener('click', (ev) => {
         if (ev.target === overlay || ev.target.id === 'close-search') overlay.remove();
         });
-        // search logic
         const input = overlay.querySelector('#search-input');
         const resultsBox = overlay.querySelector('#search-results');
         const allEntries = albums.flatMap(a => (a.songs || []).map(s => ({ song: s, album: a.title, albumId: a.id })));
@@ -385,7 +379,6 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
             </div>
         `).join('');
         });
-        // click result -> open modal
         resultsBox.addEventListener('click', (ev) => {
         const res = ev.target.closest && ev.target.closest('.search-result');
         if (res) {
@@ -394,7 +387,6 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
             showModal(song);
         }
         });
-        // keyboard open result
         resultsBox.addEventListener('keydown', (ev) => {
         if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.matches('.search-result')) {
             ev.preventDefault();
@@ -403,7 +395,6 @@ AOS.init({ duration: 5000, easing: "ease-out-cubic", once: false });
             showModal(song);
         }
         });
-        // focus input
         setTimeout(() => input.focus(), 50);
     }
     })();
